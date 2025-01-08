@@ -7,8 +7,8 @@ import os
 # Global PostgreSQL connection details
 POSTGRES_CONFIG = {
     'host': os.getenv('POSTGRES_HOST'),
-    'user': os.getenv('POSTGRES_USER'),
-    'password': os.getenv('POSTGRES_PASSWORD'),
+    'user': os.getenv('postgres'),
+    'password': os.getenv('admin'),
     'port': os.getenv('POSTGRES_PORT', 5432)  # Default to 5432
 }
 
