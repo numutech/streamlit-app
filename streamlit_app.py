@@ -2,14 +2,22 @@ import streamlit as st
 import pandas as pd
 import psycopg2
 from sqlalchemy import create_engine
+import os
 
 # Global PostgreSQL connection details
 POSTGRES_CONFIG = {
-    'host': 'localhost',
-    'user': 'postgres',
-    'password': 'admin',
-    'port': 5432
+    'host': os.getenv('POSTGRES_HOST'),
+    'user': os.getenv('POSTGRES_USER'),
+    'password': os.getenv('POSTGRES_PASSWORD'),
+    'port': os.getenv('POSTGRES_PORT', 5432)  # Default to 5432
 }
+
+# POSTGRES_CONFIG = {
+#     'host': 'localhost',
+#     'user': 'postgres',
+#     'password': 'admin',
+#     'port': 5432
+# }
 
 
 def get_engine(database_name):
